@@ -4,8 +4,8 @@
 
 ## Author
 
-- App       : 김민정
-- Front-end : 허병철
-- Back-end  : 나현균
-- DB        : 이민혁
-- DevOps    : 민경태
+- App &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 김민정
+- Front-end &nbsp;&nbsp;: 허병철
+- Back-end  &nbsp;&nbsp;&nbsp;: 나현균
+- DB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 이민혁
+- DevOps &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 민경태

@@ -20,10 +20,6 @@
 
 클라이언트 사이드에서 처리 가능할 만큼 단순 작업을 제외한 작업은 최대한 back에서 처리
 
-모든 작업은 REAL-VIS 작업이 최우선으로, 그 후 시간이 있을 때만 진행
-
-DB는 MongoDB
-
 nest 기능 조사 및 추가 연습
 
 ---
@@ -34,14 +30,15 @@ nest 기능 조사 및 추가 연습
 
 ### What I Did
 
+(2/20)
 - x-powered-by disable
 - Swagger 세팅
 - 포트 hardcoding 대신 dotenv + config 셋팅
 - GlobalPipe 셋팅
 
-### Error and not Finished
+### Error and finished
 
-- CookieParser - 모듈 불러오기 실패..
+- CookieParser - 버전 안맞음 1.4.6으로 해결
 
 # 2주차 (2/ 27 ~ )
 

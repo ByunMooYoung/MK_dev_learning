@@ -16,7 +16,7 @@ async function bootstrap() {
   /********************
    * 2. 미들웨어 설정
    *******************/
-  app.use(cookieParser()); 
+  app.use(cookieParser());
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true, // decorater가 없는 속성 (what is decorater)일 경우 해당 속성 제거

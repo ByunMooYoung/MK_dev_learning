@@ -27,8 +27,8 @@ export class Location {
 export class AttendanceItem {
   @ApiProperty({ description: '해당 월 + 일' })
   @IsOptional()
-  @prop({ type: () => Number })
-  date?: number;
+  @prop({ type: () => String })
+  date?: String;
 
   @ApiProperty({
     description: '출근 시간',
@@ -66,12 +66,39 @@ export class AttendanceItem {
   personalReason?: string;
 }
 
-export class Attendance extends BaseEntity {
+export class Attendance<T> extends BaseEntity {
   @ApiProperty({ description: '해당 년도 + 월' })
-  @prop({ type: () => Number })
-  date: number;
+  @prop({ type: () => String })
+  date: String;
 
   @ApiProperty({ description: '해당 월의 매일 근태 정보' })
   @prop({ type: () => [AttendanceItem], required: true, _id: false })
-  items: AttendanceItem[];
+  items: T[];
+}
+/********************
+ * 1. Req용 class
+ *******************/
+
+export class ReqPostAttendance {
+  @ApiProperty({ description: '해당 월 + 일' })
+  @IsOptional()
+  @prop({ type: () => String })
+  date?: String;
+}
+
+export class ReqPatchPunch {
+  @ApiProperty({
+    description: '시간',
+  })
+  @IsOptional()
+  @IsDateString()
+  @prop({ type: Date })
+  time?: Date;
+
+  @ApiProperty({
+    description: '출근 위도 경도 배열',
+  })
+  @ValidateNested({ each: true })
+  @prop({ type: () => Location, _id: false })
+  location?: Location;
 }

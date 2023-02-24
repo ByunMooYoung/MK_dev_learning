@@ -20,7 +20,7 @@ import {
   ReqPatchPunch,
   ReqPostAttendance,
 } from 'src/models/attendance.entity';
-import { FindParameters, FindResult } from 'src/models/base.entity';
+import { FindParameters } from 'src/models/base.entity';
 
 import { AttendanceService } from './attendance.service';
 
@@ -31,41 +31,38 @@ export class AttendanceController {
 
   @Get()
   @ApiOperation({ summary: '해당 월의 근태 불러오기 (filterkey,value)' })
-  @ApiResponse({ type: FindResult })
-  async findattendanceByMonth(
-    @Query() fParams: FindParameters,
-  ): Promise<String> {
+  @ApiResponse({ type: Attendance })
+  async findattendanceByMonth(@Query() fParams: FindParameters) {
     return await this.service.getAttendance(fParams);
   }
 
   @Post()
   @ApiOperation({ summary: '근태 목록 새로 생성하기' })
   @ApiBody({ type: ReqPostAttendance })
-  @ApiCreatedResponse({ type: Attendance<AttendanceItem> })
-  async createNewAttendance(@Body() data: ReqPostAttendance): Promise<String> {
+  @ApiCreatedResponse({ type: Attendance })
+  async createNewAttendance(@Body() data: ReqPostAttendance) {
     return await this.service.createNewAttendance(data);
   }
 
   @Patch('/punch/in')
   @ApiOperation({ summary: '해당 날짜에 출근 Patch' })
   @ApiBody({ type: ReqPatchPunch })
-  @ApiCreatedResponse({ type: Attendance<AttendanceItem> })
-  async patchPunchIn(@Body() data: ReqPatchPunch): Promise<String> {
+  async patchPunchIn(@Body() data: ReqPatchPunch) {
     return await this.service.patchPunchInDailyAttendance(data);
   }
 
   @Patch('punch/out')
   @ApiOperation({ summary: '해당 날짜에 퇴근 Patch' })
   @ApiBody({ type: ReqPatchPunch })
-  @ApiCreatedResponse({ type: Attendance<AttendanceItem> })
-  async patchPunchOut(@Body() data: ReqPatchPunch): Promise<String> {
+  @ApiCreatedResponse({ type: Attendance })
+  async patchPunchOut(@Body() data: ReqPatchPunch) {
     return await this.service.patchPunchOutDailyAttendance(data);
   }
 
   @Patch('punch/all')
   @ApiOperation({ summary: '해당 날짜 Patch' })
   @ApiBody({ type: AttendanceItem })
-  @ApiCreatedResponse({ type: Attendance<AttendanceItem> })
+  @ApiCreatedResponse({ type: Attendance })
   async patchPunchAll(@Body() data: AttendanceItem): Promise<String> {
     return await this.service.patchDailyAttendace(data);
   }

@@ -91,14 +91,3 @@ export const propOption = {
     required: dateRequired,
   },
 };
-
-// 페이지당 출력될 문서의 수의 기봅값
-export const defTakeNum = 30;
-// 페이지장 출력될 문서의 최소 수
-export const minTakeNum = 1;
-// 페이지장 출력될 문서의 최대 수
-export const maxTakeNum = 100;
-
-// 검사 시간 관련
-export const minIspTimeNum = 9;
-export const maxIspTimeNum = 17;
